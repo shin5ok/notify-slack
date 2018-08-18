@@ -5,10 +5,10 @@ import requests
 url = "http://t2.uname.link/slack/kawano"
 def handler(event, context):
     try:
-        data = json.loads(event)['body']
-    except Exception as e:
-        print(str(e))
         data = event.get('body')
+    except Exception as e:
+        data = str(e)
+        print(str(e))
     finally:
         print("-------------")
         print(data)
