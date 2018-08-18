@@ -4,7 +4,11 @@ import requests
 
 url = "http://t2.uname.link/slack/kawano"
 def handler(event, context):
-    data = json.loads(event)['body']
+    try:
+        data = json.loads(event)['body']
+    except Exception as e:
+        data = str(e)
+
     print(data)
     r = requests.post(url, data=data)
     print(r.content)
