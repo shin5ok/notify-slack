@@ -7,9 +7,13 @@ def handler(event, context):
     try:
         data = json.loads(event)['body']
     except Exception as e:
-        data = str(e)
+        print(str(e))
+        data = event.get('body')
+    finally:
+        print("-------------")
+        print(data)
+        print("-------------")
 
-    print(data)
     r = requests.post(url, data=data)
     print(r.content)
 
