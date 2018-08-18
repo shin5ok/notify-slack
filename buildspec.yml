@@ -7,7 +7,7 @@ phases:
       # Upgrade AWS CLI to the latest version
       - echo $(pwd)
       - pip install --upgrade awscli
-      - pip install requirements.txt
+      - pip install -t . -r requirements.txt
 
   pre_build:
     commands:
