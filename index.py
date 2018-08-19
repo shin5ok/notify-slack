@@ -20,7 +20,7 @@ def handler(event, context):
         print(data)
         print("-------------")
 
-    r = requests.post(url, data=data)
+    r = requests.post(url, data=json.dumps(data))
     print(r.content)
 
     return {'statusCode': 200,
