@@ -4,8 +4,13 @@ import requests
 
 url = "http://t2.uname.link/slack/kawano"
 def handler(event, context):
+    keywords = ('Message', 'body')
     try:
-        data = event.get('body')
+         for key in keywords:
+            if key in event:
+                data = event[key]
+                break
+
     except Exception as e:
         data = str(e)
         print(str(e))
